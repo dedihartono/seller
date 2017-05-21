@@ -13,11 +13,13 @@
   <div class="container">
     <div ng-controller="katalogContoller as barang">
       <div ng-repeat="list in barang.katalog">
-        <h2>{{ list.nama }}</h2>
-        <p>{{ list.keterangan }}</p>
-        <p>{{ list.harga }}</p>
-        <button class="btn btn-default" ng-show="list.pembelian">Tambah ke Keranjang</button>
-        <hr>
+        <div ng-hide="list.barang_kosong">
+          <h2>{{ list.nama }}</h2>
+          <p>{{ list.keterangan }}</p>
+          <p>{{ list.harga }}</p>
+          <button class="btn btn-default" ng-show="list.pembelian">Tambah ke Keranjang</button>
+          <hr>
+        </div>
       </div>
     </div>
   </div>
