@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html ng-app="katalog">
+<html ng-app="appKatalog">
+
 <head>
   <meta charset="utf-8">
-  <title>Beranda</title>
-  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+  <title>Tampil Katalog</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 </head>
-<body>
-<script type="text/javascript" src="app/angular.min.js"></script>
-<script type="text/javascript" src="app/app.js"></script>
-  <div class="container">
-      
-      {{ 2 + 2 }}
 
+<body>
+
+
+  <div class="container">
+    <div ng-controller="katalogContoller as barang">
+      <div ng-repeat="list in barang.katalog">
+        <h2>{{ list.nama }}</h2>
+        <p>{{ list.keterangan }}</p>
+        <p>{{ list.harga }}</p>
+        <button class="btn btn-default" ng-show="list.pembelian">Tambah ke Keranjang</button>
+        <hr>
+      </div>
+    </div>
   </div>
-<script type="text/javascript" src="assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+
+
+  <script type="text/javascript" src="app/angular.min.js"></script>
+  <script type="text/javascript" src="app/app.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 </body>
+
 </html>
