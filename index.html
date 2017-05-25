@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html ng-app="appKatalog">
+<html ng-app="store">
 
 <head>
   <meta charset="utf-8">
-  <title>Tampil Katalog</title>
+  <title>Online Shop</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 </head>
 
 <body>
-
-
   <div class="container">
-    <div ng-controller="katalogContoller as barang">
-      <div ng-repeat="list in barang.katalog">
-        <div ng-hide="list.barang_kosong">
-          <h2>{{ list.nama }}</h2>
-          <p>{{ list.keterangan }}</p>
-          <p>{{ list.harga }}</p>
-          <button class="btn btn-default" ng-show="list.pembelian">Tambah ke Keranjang</button>
-          <hr>
-        </div>
+    <div class="row"><br/>
+      <div class="col-md-4" ng-controller="storeController as store">
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="list in store.product">
+            <h1>{{ list.name }}</h1>
+            <em class="pull-right">{{ list.price }}</em>
+            <p>{{ list.description }}</p>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
-
-
   <script type="text/javascript" src="app/angular.min.js"></script>
   <script type="text/javascript" src="app/app.js"></script>
   <script type="text/javascript" src="assets/js/jquery.min.js"></script>
