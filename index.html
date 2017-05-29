@@ -4,6 +4,12 @@
 <head>
   <meta charset="utf-8">
   <title>Online Shop</title>
+  <style media="screen">
+    img{
+      height: 75px;
+      width: 100px;
+    }
+  </style>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 </head>
 
@@ -12,10 +18,16 @@
     <div class="row"><br/>
       <div class="col-md-4" ng-controller="storeController as store">
         <ul class="list-group">
+
           <li class="list-group-item" ng-repeat="list in store.product">
-            <h1>{{ list.name }}</h1>
-            <em class="pull-right">{{ list.price }}</em>
-            <p>{{ list.description }}</p>
+            <div ng-hide="list.outStock">
+              <h1>{{ list.name }}</h1>
+              <em class="pull-right">{{ list.price | currency }}</em>
+              <p>{{ list.description }}</p>
+                <img ng-src="{{ list.image.full }}" alt="">
+              <button class="btn btn-default pull-right" type="submit" ng-show="list.canPurchase"> Add to Cart</button>
+              <br/><br/>
+            </div>
           </li>
         </ul>
       </div>
